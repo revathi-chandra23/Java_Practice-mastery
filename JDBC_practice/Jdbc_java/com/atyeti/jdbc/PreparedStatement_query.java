@@ -10,7 +10,7 @@ public class PreparedStatement_query {
         Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "student", "student");
         System.out.println();
         PreparedStatement st = myConn.prepareStatement(query);
-        st.setInt(1, 15);
+        st.setInt(1, 15);  // prepared statement 
         st.setString(2, "someswari");
         st.setString(3, "karanam");
         st.setString(4, "somes.k@gmail.com");

@@ -10,7 +10,6 @@ public class Insert_query {
         Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "student", "student");
         System.out.println("Connection  successful");
         Statement st = myConn.createStatement();
-        //default boolean is false
         boolean rs = st.execute(query);
         System.out.println("Data inserted successfully");
         System.out.println(rs);
