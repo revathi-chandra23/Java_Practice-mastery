@@ -1,7 +1,5 @@
 package com.carRental.dtos;
 
-
-
 import com.carRental.entity.enumss.NotificationType;
 import lombok.Data;
 

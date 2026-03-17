@@ -1,7 +1,5 @@
 package com.carRental.repository;
 
-
-
 import com.carRental.entity.Branch;
 import com.carRental.entity.Car;
 import org.springframework.data.jpa.repository.JpaRepository;

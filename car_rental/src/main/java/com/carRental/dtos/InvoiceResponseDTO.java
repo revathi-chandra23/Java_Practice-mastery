@@ -1,5 +1,4 @@
 package com.carRental.dtos;
-
 import lombok.Data;
 
 import java.time.LocalDateTime;

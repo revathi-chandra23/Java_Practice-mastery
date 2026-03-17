@@ -6,6 +6,7 @@ import com.carRental.entity.enumss.RentalStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
+
 import java.time.LocalDate;
 
 @Entity

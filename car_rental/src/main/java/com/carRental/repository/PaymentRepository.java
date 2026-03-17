@@ -1,6 +1,5 @@
 package com.carRental.repository;
 
-
 import com.carRental.entity.Payment;
 import com.carRental.entity.enumss.PaymentStatus;
 import org.springframework.data.jpa.repository.JpaRepository;

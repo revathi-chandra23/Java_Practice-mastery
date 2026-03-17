@@ -1,6 +1,5 @@
 package com.carRental.repository;
 
-
 import com.carRental.entity.Notification;
 import com.carRental.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;

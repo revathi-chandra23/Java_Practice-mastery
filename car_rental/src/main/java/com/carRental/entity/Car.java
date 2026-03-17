@@ -1,6 +1,7 @@
 package com.carRental.entity;
 
 
+
 import jakarta.persistence.*;
 import lombok.*;
 

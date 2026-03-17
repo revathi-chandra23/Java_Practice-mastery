@@ -1,6 +1,5 @@
 package com.carRental.dtos;
 import lombok.Data;
-
 @Data
 public class LoginRequestDTO {
     private String email;

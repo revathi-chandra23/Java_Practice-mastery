@@ -2,6 +2,7 @@ package com.carRental.entity;
 // entity/Branch.java
 
 
+
 import jakarta.persistence.*;
 import lombok.*;
 

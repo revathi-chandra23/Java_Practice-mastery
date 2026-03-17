@@ -3,6 +3,7 @@ package com.carRental.entity;
 // entity/Notification.java
 
 
+
 import com.carRental.entity.enumss.NotificationType;
 import jakarta.persistence.*;
 import lombok.*;

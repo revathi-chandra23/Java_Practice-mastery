@@ -1,6 +1,5 @@
 package com.carRental.dtos;
 
-
 import lombok.Data;
 
 @Data

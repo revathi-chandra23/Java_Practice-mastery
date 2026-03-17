@@ -2,6 +2,7 @@ package com.carRental.entity;
 
 // entity/Payment.java
 
+
 import com.carRental.entity.enumss.PaymentStatus;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

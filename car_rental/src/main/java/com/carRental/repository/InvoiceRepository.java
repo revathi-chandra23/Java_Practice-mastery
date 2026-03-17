@@ -1,5 +1,4 @@
 package com.carRental.repository;
-
 import com.carRental.entity.Invoice;
 import org.springframework.data.jpa.repository.JpaRepository;
 

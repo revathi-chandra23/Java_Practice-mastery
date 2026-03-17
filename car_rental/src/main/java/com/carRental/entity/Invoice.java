@@ -3,6 +3,7 @@ package com.carRental.entity;
 // entity/Invoice.java
 
 
+
 import jakarta.persistence.*;
 import lombok.*;
 

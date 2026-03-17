@@ -9,6 +9,7 @@ import java.util.Optional;
 public interface BranchRepository extends JpaRepository<Branch, Long> {
     Optional<Branch> findByName(String name);
 
+    
     @Query("SELECT b FROM Branch b WHERE lower(b.name) LIKE lower(concat('%', :name, '%'))")
     List<Branch> searchByName(String name);
 

@@ -1,6 +1,5 @@
 package com.carRental.repository;
 
-
 import com.carRental.entity.Discount;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

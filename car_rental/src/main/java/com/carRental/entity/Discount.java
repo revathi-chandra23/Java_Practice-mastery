@@ -3,6 +3,7 @@ package com.carRental.entity;
 // entity/Discount.java
 
 
+
 import com.carRental.entity.enumss.DiscountType;
 import jakarta.persistence.*;
 import lombok.*;
