@@ -1,7 +1,6 @@
 
 now postman methods
 
-
 Here’s a complete list of Postman API endpoints for your Car Rental system based on the services, controllers, and CSV reporting we’ve built. I’ve organized them by module with HTTP method, URL, request body (if required), and description.
 
 1️⃣ User API

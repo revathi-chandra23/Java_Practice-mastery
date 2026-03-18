@@ -10,6 +10,8 @@ Car Rental Management System – Spring Boot Backend
 
 -> Implemented rental lifecycle workflows including real-time car availability checking, booking creation, multi-branch pickup/drop, rental status transitions, and cost calculation.
 
+
+
 -> Developed discount engine that applies percentage or flat-rate coupon codes dynamically during payment processing.
 
 -> Created payment module supporting transaction processing, refund handling, payment status tracking (PENDING/COMPLETED/FAILED), and high-value transaction filtering.

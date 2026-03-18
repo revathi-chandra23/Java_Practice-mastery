@@ -25,3 +25,4 @@ Optimized API performance using service-layer caching, query optimization, and t
 Documented the entire API suite using Postman collections and Swagger UI for easy testing, onboarding, and client integration.
 
 Ensured clean architecture with layered design (Controller → Service → Repository) following Spring best practices.
+
