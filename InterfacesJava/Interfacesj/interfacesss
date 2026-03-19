@@ -20,9 +20,6 @@ We can achieve loose coupling using interface.
 Note :- inside an interface we can't declare any blocks (instance, static), instance
 variables (No properties) as well as we can't write constructor inside an interface.
 
-
-
-
 Evolution of Java Interfaces
 Java <7: Interfaces could only declare public abstract methods and public static final fields
 Java 8: Introduced default and static methods:
@@ -30,7 +27,7 @@ Default methods provide implementations, enabling backward compatibility and ena
 Static methods act as utility functions scoped to the interface, not inherited by implementers
 Java 9+: Added private (and private static) methods in interfaces, allowing encapsulation and shared logic within interfaces without exposing to implementors
 
-.
+
 What is static method inside an interface?
 ------------------------------------------
 We can define static method inside an interface from java 1.8 onwards.
@@ -186,4 +183,13 @@ private static int add(int a, int b) {
 }
 
 
+| Type       | Key Idea         | Memory Trick     |
+| ---------- | ---------------- | ---------------- |
+| Normal     | Only rules       | “What, not how”  |
+| Functional | One method       | “ONE = Function” |
+| Marker     | Empty            | “Tag only”       |
+| Nested     | Inside another   | “Within”         |
+| Default    | Has body         | “Ready-made”     |
+| Static     | No object needed | “Direct use”     |
+| Multiple   | Many interfaces  | “Multi-role”     |
 
