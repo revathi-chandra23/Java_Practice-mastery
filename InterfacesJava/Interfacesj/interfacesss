@@ -1,0 +1,189 @@
+An interface is a keyword in java which is similar to a class.
+Up to JDK 1.7 an interface contains only abstract method that means there is a
+guarantee that inside an interface we don't have concrete or general or instance
+methods.
+
+From java 8 onwards we have a facility to write default and static methods.
+By using interface we can achieve 100% abstraction concept because it contains only
+abstract methods.
+
+In order to implement the member of an interface, it has provided implements keyword.
+All the methods declared inside an interface is by default public and abstract so at the
+time of overriding we should apply public access modifier to sub class method.
+All the variables declared inside an interface is by default public, static and final.
+
+We should override all the abstract methods of interface to the sub class otherwise the
+sub class will become as an abstract class hence object can't be created.
+We can't create an object for interface, but reference can be created.
+By using interface we can achieve multiple inheritance in java.
+We can achieve loose coupling using interface.
+Note :- inside an interface we can't declare any blocks (instance, static), instance
+variables (No properties) as well as we can't write constructor inside an interface.
+
+
+
+
+Evolution of Java Interfaces
+Java <7: Interfaces could only declare public abstract methods and public static final fields
+Java 8: Introduced default and static methods:
+Default methods provide implementations, enabling backward compatibility and enabling behavioral multiple inheritance
+Static methods act as utility functions scoped to the interface, not inherited by implementers
+Java 9+: Added private (and private static) methods in interfaces, allowing encapsulation and shared logic within interfaces without exposing to implementors
+
+.
+What is static method inside an interface?
+------------------------------------------
+We can define static method inside an interface from java 1.8 onwards.
+static method is only available inside the interface where it is defined that means we
+cannot invoke static method from the implementer classes.
+It is used to provide common functionality which we can apply/invoke from any ELC
+class.
+
+Interface Static Method:
+------------------------
+ a) Accessible using the interface name.
+ b) Cannot be overridden by implementing classes.
+ c) Can be called using the interface name only.
+Class Static Method:
+--------------------
+ a) Accessible using the class name.
+ b) Can be hidden (not overridden) in subclasses by redeclaring a static method with
+the same signature.
+ c) Can be called using the super class, sub class name as well as sub class object
+
+ interfaces
+ --------------
+
+ Methods are by default public abstract; fields are public static final
+  No constructors, cannot be instantiated directly
+
+  Why Use Interfaces?
+  Abstraction: Defines what needs to be done, not how
+  Multiple inheritance of behavior: Classes can implement multiple interfaces
+  Loose coupling: Code depends on behavior (interface), not implementation
+  contract enforcement: Compiler ensures all specified methods are implemented
+
+  Special Interface Types
+  Functional Interface: Exactly one abstract method (e.g., Runnable); ideal for lambdas
+  Marker Interface: No methods, used to tag classes (e.g., Serializable).
+  Nested Interfaces: Interfaces within classes/interfaces, useful for logical grouping
+
+--------------------------------------------------------------------------------------------------------------------------------
+|Type	              | Key Feature	                          |  Use Case Example                | use case                     |
+-------------------------------------------------------------------------------------------------|------------------------------|
+Normal Interface	  |Abstract methods (plus default/static) |	  Vehicle, Shape                 |  Define behavior contracts   |
+Functional Interface  |	One abstract method	                  |  Runnable, Callable, Comparator  |Lambda expressions, callbacks |
+Marker Interface	  | No methods, just a tag	              | Serializable, Cloneable          | Tagging for special behavior |
+Nested Interface	  | Defined inside a class or interface	  |  Button.OnClickListener          | Scoped or related behavior   |
+Private Interface	  | Private nested interface	          | Internal helper contracts        | 	Internal-only contracts     |
+--------------------------------------------------------------------------------------------------------------------------------
+
+Types of Interfaces
+--------------------------
+Normal Interface
+
+Declares a set of methods (abstract, default, static) for classes to implement
+
+Marker Interface
+
+An empty interface used to mark classes with metadata (e.g., Serializable, Cloneable, Remote)
+
+Functional Interface
+
+Contains exactly one abstract method, enabling lambda expressions and method references
+
+Java built-ins: Runnable, Comparable, and those in java.util.function like Predicate, Consumer, Function, Supplier
+
+Nested Interface
+
+Defined within a class or another interface
+
+interface A
+{
+interface B
+{ …
+}
+ }
+
+
+Sub-interface / Multiple-Inheritance Interface
+
+An interface can extend multiple interfaces, combining contracts (interface A extends B, C { })
+
+ Modern Interface Features
+Default Methods
+Provide implementation in the interface. Useful to evolve APIs without breaking existing code
+
+Static Methods
+Interface-level utilities, callable directly by the interface name
+
+Private & Private Static Methods (Java 9+)
+Encapsulate shared logic used by default/static methods within the interface .
+
+Generic Interfaces
+Parameterized types to support type-safe abstractions (interface Converter<T, R> { R convert(T in); }) .
+
+Advanced/Unknown Concepts
+Service Provider Interface (SPI)
+A way to design pluggable frameworks. The interface defines extensibility points and external modules implement these and are loaded via ServiceLoader .
+
+Fluent Interface
+A style where method chaining creates a readable, “DSL‑like” API (e.g., builder.setX(1).setY(2).build()) .
+
+Adapter Pattern via Interfaces
+Use interfaces to adapt incompatible APIs without changing them, often with “wrapper” classes
+
+Marker Interface Pattern
+Using marker interfaces for runtime behavior checks. Before annotations, this was the main metadata method
+
+----------------------------------------------------------------------------------------------------------
+| Method Type        | Java Version | Visibility | Purpose                                               |
+| ------------------ | ------------ | ---------- | ----------------------------------------------------- |
+| Abstract           | All          | public     | Define contract methods to implement                  |
+| Default            | 8+           | public     | Provide optional shared behavior                      |
+| Static             | 8+           | public     | Interface-level utilities                             |
+| Private (instance) | 9+           | private    | Helpers for default methods to reuse code             |
+| Private (static)   | 9+           | private    | Utilities for default/static methods within interface |
+----------------------------------------------------------------------------------------------------------
+
+Types of Interface Methods
+
+a. Abstract methods
+Declared without a body; implementing classes must override them (pre-Java 8 and still core). All are implicitly public abstract
+interface Animal {
+    void sound();  // abstract
+}
+
+
+b. Default methods (Java 8+)
+
+Provide a default implementation directly in the interface (default keyword)
+
+default void breathe() {
+    System.out.println("Inhale... Exhale...");
+}
+
+c. Static methods (Java 8+)
+
+Utility methods callable via the interface name, not via instance
+static Animal getDefault() {
+    return new Dog();
+}
+
+d. Private methods (Java 9+)
+
+Only accessible inside that interface, used to share code between default/static methods
+private void log(String msg) {
+    System.out.println("LOG: " + msg);
+}
+
+e. Private static methods (Java 9+)
+
+Similar to private, but static—used by static or default code
+
+private static int add(int a, int b) {
+    return a + b;
+}
+
+
+
