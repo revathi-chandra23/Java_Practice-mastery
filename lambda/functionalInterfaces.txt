@@ -1,0 +1,162 @@
+What are Functional Interfaces?
+
+A functional interface is an interface that contains exactly one abstract method.
+
+📌 Theory:
+
+Introduced in Java 8
+
+Used to enable functional programming
+
+Can have:
+
+One abstract method
+
+Multiple default & static methods
+
+Annotated with @FunctionalInterface (optional)
+
+👉 These interfaces are implemented using lambda expressions
+
+🔹 What is java.util.function?
+
+It is a built-in package in Java that provides commonly used functional interfaces so developers don’t need to create their own.
+
+🔹 Core Functional Interfaces (Theory + Purpose)
+✅ 1. Function<T, R>
+📘 Theory:
+
+Represents a function that accepts one argument and produces a result.
+
+📌 Use:
+
+Data transformation
+
+Mapping values
+
+✅ 2. BiFunction<T, U, R>
+📘 Theory:
+
+Represents a function that takes two inputs and returns one output.
+
+📌 Use:
+
+Combining two values
+
+Calculations involving two inputs
+
+✅ 3. Consumer<T>
+📘 Theory:
+
+Represents an operation that accepts a single input and returns no result.
+
+📌 Use:
+
+Printing
+
+Logging
+
+Modifying objects
+
+✅ 4. BiConsumer<T, U>
+📘 Theory:
+
+Accepts two inputs and performs an operation without returning anything.
+
+✅ 5. Supplier<T>
+📘 Theory:
+
+Represents a supplier that provides a value without taking any input.
+
+📌 Use:
+
+Object creation
+
+Lazy initialization
+
+Random values
+
+✅ 6. Predicate<T>
+📘 Theory:
+
+Represents a function that takes an input and returns a boolean result.
+
+📌 Use:
+
+Filtering data
+
+Condition checking
+
+✅ 7. BiPredicate<T, U>
+📘 Theory:
+
+Takes two inputs and returns a boolean result.
+
+✅ 8. UnaryOperator<T>
+📘 Theory:
+
+A special type of Function where input and output types are the same.
+
+📌 Use:
+
+Updating or modifying a value
+
+✅ 9. BinaryOperator<T>
+📘 Theory:
+
+A special type of BiFunction where all types are the same.
+
+📌 Use:
+
+Operations like sum, max, min
+
+🔹 Key Characteristics
+
+Enable lambda expressions
+
+Support functional programming style
+
+Reduce boilerplate code
+
+Widely used in Streams API
+
+Support method references
+
+🔹 Functional Interface vs Lambda
+Functional Interface	Lambda Expression
+Defines method	Implements method
+Compile-time entity	Runtime behavior
+🔹 Advantages (Theory)
+
+Improves code readability
+
+Encourages clean and concise code
+
+Supports parallel processing (Streams)
+
+Reduces need for anonymous classes
+
+
+Differences Table (Very Important for Exams)
+Interface	Input	Output	Method	Purpose
+Function	1	Value	apply()	Transform data
+BiFunction	2	Value	apply()	Combine values
+Consumer	1	void	accept()	Use data
+BiConsumer	2	void	accept()	Use two inputs
+Supplier	0	Value	get()	Provide data
+Predicate	1	boolean	test()	Check condition
+BiPredicate	2	boolean	test()	Compare/check
+UnaryOperator	1	Same type	apply()	Modify value
+BinaryOperator	2	Same type	apply()	Combine same types
+
+
+
+F C S P Rule
+
+F → Function → transform
+
+C → Consumer → use
+
+S → Supplier → give
+
+P → Predicate → check
