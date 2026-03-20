@@ -98,3 +98,142 @@ interface Add {
 
 Add obj = (a, b) -> a + b;
 System.out.println(obj.sum(5, 3));
+
+
+
+
+
+
+
+
+
+
+
+1. Method Reference ( :: )
+📘 Theory:
+
+A method reference is a shorthand way of writing a lambda expression when the lambda just calls an existing method.
+
+👉 Instead of:
+
+x -> System.out.println(x)
+
+👉 You write:
+
+System.out::println
+🔸 Types of Method References
+✅ 1. Static Method Reference
+ClassName::staticMethod
+Example:
+Function<Integer, Integer> square = x -> Math.abs(x);
+
+➡ Using method reference:
+
+Function<Integer, Integer> square = Math::abs;
+✅ 2. Instance Method Reference
+object::methodName
+Example:
+Consumer<String> c = x -> System.out.println(x);
+
+➡ Using method reference:
+
+Consumer<String> c = System.out::println;
+✅ 3. Constructor Reference
+ClassName::new
+Example:
+Supplier<ArrayList<String>> list = () -> new ArrayList<>();
+
+➡ Using method reference:
+
+Supplier<ArrayList<String>> list = ArrayList::new;
+✅ 4. Instance Method of Arbitrary Object
+ClassName::methodName
+Example:
+list.sort((a, b) -> a.compareTo(b));
+
+➡ Using method reference:
+
+list.sort(String::compareTo);
+🔹 2. Chaining (Very Important)
+
+Chaining means combining multiple functional operations together
+
+🔸 Function Chaining
+Methods:
+
+andThen() → executes next
+
+compose() → executes before
+
+✅ Example:
+Function<Integer, Integer> multiply = x -> x * 2;
+Function<Integer, Integer> add = x -> x + 3;
+
+// andThen
+System.out.println(multiply.andThen(add).apply(5)); // (5*2)+3 = 13
+
+// compose
+System.out.println(multiply.compose(add).apply(5)); // (5+3)*2 = 16
+🔸 Predicate Chaining
+Methods:
+
+and()
+
+or()
+
+negate()
+
+✅ Example:
+Predicate<Integer> p1 = x -> x > 5;
+Predicate<Integer> p2 = x -> x < 10;
+
+System.out.println(p1.and(p2).test(7)); // true
+System.out.println(p1.or(p2).test(3));  // true
+System.out.println(p1.negate().test(3)); // true
+🔸 Consumer Chaining
+Method:
+
+andThen()
+
+✅ Example:
+Consumer<String> c1 = x -> System.out.println(x);
+Consumer<String> c2 = x -> System.out.println(x.toUpperCase());
+
+c1.andThen(c2).accept("java");
+🔹 3. Why These Are Important
+
+👉 Used heavily in:
+
+Streams API
+
+Data pipelines
+
+Clean, modular code
+
+Functional-style programming
+
+🔹 Quick Summary 🧠
+Method Reference:
+
+👉 Shortcut for lambda
+👉 Uses ::
+
+Chaining:
+
+👉 Combine multiple operations
+
+🔹 Interview Tip ⭐
+
+If asked:
+
+“Difference between andThen() and compose()?”
+
+👉 Answer:
+
+andThen() → current function runs first
+
+compose() → parameter function runs first
+
+✅ Final One-Line
+
+👉 Method reference simplifies lambda, chaining combines multiple operation
