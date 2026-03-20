@@ -1,0 +1,100 @@
+What is a Lambda Expression?
+📘 Theory:
+
+A lambda expression is a short way to write an implementation of a functional interface (without creating a class or anonymous class).
+
+👉 Introduced in Java 8 to support functional programming
+
+🔹 Basic Syntax
+(parameters) -> expression
+
+or
+
+(parameters) -> {
+    // multiple statements
+}
+
+🔹 Simple Examples
+✅ No parameter
+() -> System.out.println("Hello")
+✅ One parameter
+x -> x * 2
+✅ Multiple parameters
+(a, b) -> a + b
+
+🔹 Key Characteristics (Theory)
+
+No need to write class or method
+
+Works only with functional interfaces
+
+Supports type inference (no need to declare types)
+
+Makes code short and readable
+
+Enables functional programming style
+
+🔹 Lambda vs Anonymous Class
+Feature	Lambda	Anonymous Class
+Code size	Short	लंबा (long)
+Syntax	Simple	Complex
+Readability	High	Low
+Use	Functional interface	Any interface/class
+
+🔹 Real-Time Usage
+
+✅ 1. With Runnable (Multithreading)
+Runnable r = () -> System.out.println("Thread running");
+new Thread(r).start();
+
+✅ 2. With Collections (forEach)
+list.forEach(x -> System.out.println(x));
+
+✅ 3. With Streams
+list.stream()
+    .filter(x -> x > 5)
+    .map(x -> x * 2)
+    .forEach(System.out::println);
+
+
+🔹 Advantages
+
+✔ Reduces boilerplate code
+
+✔ Improves readability
+
+✔ Encourages functional style
+
+✔ Works well with Streams API
+
+✔ Easy parallel processing
+
+
+🔹 Limitations
+
+❌ Only works with functional interfaces
+
+❌ Can be confusing for beginners
+
+❌ Not suitable for complex logic (better use methods)
+
+
+🔹 Important Points (Exam)
+
+Lambda = implementation of functional interface
+
+Uses arrow operator (->)
+
+Can replace anonymous classes
+
+Cannot be used without functional interface
+
+
+🔹 Example (Full)
+@FunctionalInterface
+interface Add {
+    int sum(int a, int b);
+}
+
+Add obj = (a, b) -> a + b;
+System.out.println(obj.sum(5, 3));
