@@ -1,3 +1,131 @@
 feedback resource in the data
 which we got to take
 to get the feedack data
+
+
+Feedback Application 
+1. Introduction
+The Feedback Application is a Spring Boot–based RESTful web service designed to collect, store, and retrieve customer feedback for products. It allows customers to submit feedback with ratings and comments, and enables retrieval of feedback based on product ID and rating with pagination support.
+The application uses MongoDB as the database and follows a layered architecture to ensure clean separation of concerns.
+
+2. Architecture Overview
+The application follows a three-layer architecture:
+
+Controller Layer – Handles HTTP requests and responses
+Service Layer – Contains business logic
+Repository Layer – Interacts with MongoDB database
+
+This architecture improves maintainability, scalability, and readability.
+
+3. Model Layer (FeedbackModel)
+The FeedbackModel class represents the feedback data structure stored in MongoDB.
+Key Features:
+
+Annotated with @Document to map the class to a MongoDB collection
+Uses Lombok annotations (@Data, @NoArgsConstructor, @AllArgsConstructor) to reduce boilerplate code
+
+Fields:
+
+id – Unique identifier for feedback (MongoDB _id)
+customerId – ID of the customer submitting feedback
+productId – ID of the product being reviewed
+comment – Customer’s feedback text
+rating – Rating value given to the product
+
+This model acts as a data carrier between all application layers.
+
+4. Repository Layer (FeedbackRepo)
+The FeedbackRepo interface extends MongoRepository, which provides built-in CRUD operations.
+Responsibilities:
+
+Communicates directly with MongoDB
+Executes database queries
+
+Custom Query:
+Java@Query("{'productId': ?0, 'rating': ?1}")Page<FeedbackModel> findByProductIdAndRating(String productId, int rating, Pageable pageable);``Show more lines
+This query retrieves feedback:
+
+For a specific product
+With a specific rating
+Supports pagination using Pageable
+
+
+5. Service Layer (FeedbackService)
+The FeedbackService class contains the business logic of the application.
+Responsibilities:
+
+Acts as a bridge between controller and repository
+Handles pagination logic
+Ensures clean separation of concerns
+
+Methods:
+
+submitFeedback()
+
+Saves feedback data into MongoDB
+
+
+getFeedbackByProductIdAndRating()
+
+Retrieves paginated feedback based on product ID and rating
+Uses PageRequest to control page size (10 records per page)
+
+
+
+
+6. Controller Layer (FeedbackController)
+The FeedbackController exposes REST APIs for interacting with the feedback system.
+Base URL:
+/api/feedback
+
+Endpoints:
+1. Submit Feedback
+HTTPPOST /api/feedbackShow more lines
+
+Accepts feedback data in JSON format
+Calls service layer to store feedback
+Returns saved feedback object
+
+2. Get Feedback by Product ID and Rating
+HTTPGET /api/feedback/product/{productId}/rating/{rating}?page=0Show more lines
+
+Retrieves feedback for a specific product and rating
+Supports pagination via page parameter
+Returns a list of feedback records
+
+The controller ensures request mapping, parameter handling, and response formatting.
+
+7. Pagination Support
+Pagination is implemented to handle large volumes of feedback efficiently.
+
+Default page size: 10 records
+Page number passed as a request parameter
+Improves performance and user experience
+
+
+8. Database (MongoDB)
+
+Feedback data is stored in the feedbackscustomer collection
+MongoDB is used due to its:
+
+Schema flexibility
+High scalability
+Easy integration with Spring Data MongoDB
+
+
+
+
+9. Application Entry Point
+The FeedbackApplication class is the main class annotated with @SpringBootApplication.
+Responsibilities:
+
+Bootstraps the Spring Boot application
+Enables auto-configuration and component scanning
+
+
+10. Conclusion
+The Feedback Application provides a robust and scalable solution for managing customer feedback. By using Spring Boot, MongoDB, REST APIs, and pagination, the application ensures:
+
+Clean architecture
+Efficient data handling
+Easy extensibility for future enhancements like authentication, analytics, or filtering
