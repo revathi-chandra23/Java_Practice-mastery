@@ -12,12 +12,12 @@ public class FeedbackController {
 
     @Autowired
     private FeedbackService feedbackService;
-
+// submit feedback
     @PostMapping
     public FeedbackModel submitFeedback(@RequestBody FeedbackModel feedbackModel) {
         return feedbackService.submitFeedback(feedbackModel);
     }
-
+// get feedback by product ID
     @GetMapping("/product/{productId}/rating/{rating}")
     public List<FeedbackModel> getFeedbackByProductIdAndRating(
             @PathVariable String productId,
