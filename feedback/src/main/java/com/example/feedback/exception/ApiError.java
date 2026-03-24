@@ -1,36 +1,48 @@
 package com.example.feedback.exception;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.http.HttpStatus;
-
-import java.time.LocalDateTime;
+import org.springframework.http.HttpStatusCode;
 import java.util.List;
 
 public class ApiError {
-    private HttpStatus status;
+
+    private HttpStatusCode status;
     private String message;
     private String path;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private LocalDateTime timestamp;
-
-    // Optional: list of field errors for validation issues
     private List<FieldValidationError> errors;
 
-    public ApiError(HttpStatus status, String message, String path) {
+    // ✅ Constructor 1 (no validation errors)
+    public ApiError(HttpStatusCode status, String message, String path) {
         this.status = status;
         this.message = message;
         this.path = path;
-        this.timestamp = LocalDateTime.now();
     }
 
-    public ApiError(HttpStatus status, String message, String path, List<FieldValidationError> errors) {
-        this(status, message, path);
+    // ✅ Constructor 2 (with validation errors)
+    public ApiError(HttpStatusCode status, String message, String path, List<FieldValidationError> errors) {
+        this.status = status;
+        this.message = message;
+        this.path = path;
         this.errors = errors;
     }
 
-    // getters/setters...
+    // --- getters (IMPORTANT) ---
+    public HttpStatusCode getStatus() {
+        return status;
+    }
 
+    public String getMessage() {
+        return message;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public List<FieldValidationError> getErrors() {
+        return errors;
+    }
+
+    // --- Inner class ---
     public static class FieldValidationError {
         private String field;
         private String error;
@@ -39,6 +51,13 @@ public class ApiError {
             this.field = field;
             this.error = error;
         }
-        // getters/setters...
+
+        public String getField() {
+            return field;
+        }
+
+        public String getError() {
+            return error;
+        }
     }
 }
