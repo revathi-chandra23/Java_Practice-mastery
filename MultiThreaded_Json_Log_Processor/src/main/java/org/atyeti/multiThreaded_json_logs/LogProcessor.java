@@ -1,36 +1,52 @@
 package org.atyeti.multiThreaded_json_logs;
 
-import java.io.*;
-import java.util.concurrent.*;
-import java.util.concurrent.atomic.AtomicInteger;
+import org.atyeti.multiThreaded_json_logs.model.LogEntry;
+import org.atyeti.multiThreaded_json_logs.service.LogService;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class LogProcessor {
+import java.io.File;
+import java.util.concurrent.*;
 
-    private static ConcurrentHashMap<String, AtomicInteger> errorCount = new ConcurrentHashMap<>();
-    private static ObjectMapper mapper = new ObjectMapper();
+public class LogProcessor {
 
     public static void main(String[] args) {
 
-        String filePath = "src/main/resources/logs.json";
+        String filePath = "C:\\Users\\RevathiTannidi\\OneDrive - Atyeti Inc\\Documents\\Revathi_Practice\\MultiThreaded_Json_Log_Processor\\src\\main\\resources\\logs.json";
 
         int threads = Runtime.getRuntime().availableProcessors();
         ExecutorService executor = Executors.newFixedThreadPool(threads);
 
-        long startTime = System.currentTimeMillis();
+        LogService service = new LogService();
+        ObjectMapper mapper = new ObjectMapper();
+
+        long start = System.currentTimeMillis();
 
         try {
 
+            // ✅ Read full JSON array
             JsonNode root = mapper.readTree(new File(filePath));
 
+            // ✅ Iterate each JSON object
             for (JsonNode node : root) {
 
-                executor.submit(() -> processLog(node));
+                executor.submit(() -> {
+                    try {
+                        // Convert JsonNode → LogEntry object
+                        LogEntry log = mapper.convertValue(node, LogEntry.class);
+
+                        // Process log
+                        service.process(log);
+
+                    } catch (Exception e) {
+                        System.out.println("Failed to process node: " + node);
+                    }
+                });
             }
 
         } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
             e.printStackTrace();
         }
 
@@ -39,35 +55,13 @@ public class LogProcessor {
         try {
             executor.awaitTermination(10, TimeUnit.MINUTES);
         } catch (InterruptedException e) {
+            System.out.println("Error: " + e.getMessage());
             e.printStackTrace();
         }
 
-        long endTime = System.currentTimeMillis();
+        service.printResults();
 
-
-        System.out.println("ERROR count per service:");
-        errorCount.forEach((service, count) ->
-                System.out.println(service + " -> " + count.get())
-        );
-
-        System.out.println("Time taken: " + (endTime - startTime) + " ms");
-    }
-
-    private static void processLog(JsonNode node) {
-        try {
-            String level = node.get("level").asText();
-
-            if ("ERROR".equals(level)) {
-
-                String service = node.get("service").asText();
-
-                errorCount
-                        .computeIfAbsent(service, k -> new AtomicInteger(0))
-                        .incrementAndGet();
-            }
-
-        } catch (Exception e) {
-         e.printStackTrace();
-        }
+        long end = System.currentTimeMillis();
+        System.out.println("Time taken: " + (end - start) + " ms");
     }
 }
