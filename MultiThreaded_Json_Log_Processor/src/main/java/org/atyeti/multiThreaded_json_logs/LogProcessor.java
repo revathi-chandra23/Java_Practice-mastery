@@ -1,19 +1,22 @@
 package org.atyeti.multiThreaded_json_logs;
 
+import java.io.File;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
 import org.atyeti.multiThreaded_json_logs.model.LogEntry;
 import org.atyeti.multiThreaded_json_logs.service.LogService;
+import org.atyeti.multiThreaded_json_logs.util.JsonUtil;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.File;
-import java.util.concurrent.*;
 
 public class LogProcessor {
 
     public static void main(String[] args) {
 
-        String filePath = "C:\\Users\\RevathiTannidi\\OneDrive - Atyeti Inc\\Documents\\Revathi_Practice\\MultiThreaded_Json_Log_Processor\\src\\main\\resources\\logs.json";
+        String filePath = "C:\\Users\\RevathiTannidi\\OneDrive - Atyeti Inc\\Desktop\\Atyeti_RevathiTannidi_Java\\MultiThreaded_Json_Log_Processor\\src\\main\\resources\\logs.json";
 
         int threads = Runtime.getRuntime().availableProcessors();
         ExecutorService executor = Executors.newFixedThreadPool(threads);
@@ -25,18 +28,15 @@ public class LogProcessor {
 
         try {
 
-            // ✅ Read full JSON array
             JsonNode root = mapper.readTree(new File(filePath));
 
-            // ✅ Iterate each JSON object
             for (JsonNode node : root) {
 
                 executor.submit(() -> {
                     try {
-                        // Convert JsonNode → LogEntry object
-                        LogEntry log = mapper.convertValue(node, LogEntry.class);
 
-                        // Process log
+                        LogEntry log = JsonUtil.parse(node);
+
                         service.process(log);
 
                     } catch (Exception e) {
@@ -46,7 +46,6 @@ public class LogProcessor {
             }
 
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
             e.printStackTrace();
         }
 
@@ -55,7 +54,6 @@ public class LogProcessor {
         try {
             executor.awaitTermination(10, TimeUnit.MINUTES);
         } catch (InterruptedException e) {
-            System.out.println("Error: " + e.getMessage());
             e.printStackTrace();
         }
 
