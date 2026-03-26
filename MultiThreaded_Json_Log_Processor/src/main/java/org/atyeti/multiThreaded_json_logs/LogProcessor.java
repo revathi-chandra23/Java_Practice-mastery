@@ -28,26 +28,30 @@ public class LogProcessor {
 
         try {
 
+
             JsonNode root = mapper.readTree(new File(filePath));
+
 
             for (JsonNode node : root) {
 
                 executor.submit(() -> {
                     try {
-
                         LogEntry log = JsonUtil.parse(node);
+
 
                         service.process(log);
 
                     } catch (Exception e) {
-                        System.out.println("Failed to process node: " + node);
+                        System.out.println(" Failed to process node: " + node);
                     }
                 });
             }
 
         } catch (Exception e) {
+            System.out.println("Error reading file: " + e.getMessage());
             e.printStackTrace();
         }
+
 
         executor.shutdown();
 
@@ -59,7 +63,12 @@ public class LogProcessor {
 
         service.printResults();
 
+
+       // service.writeToJsonFile("src/main/resources/outputlogs.json");
+
         long end = System.currentTimeMillis();
-        System.out.println("Time taken: " + (end - start) + " ms");
+
+
+        System.out.println("\n Time taken: " + (end - start) + " ms");
     }
 }
