@@ -6,5 +6,3 @@ class Main{
         ReName.doUpdate();
     }
 }
-
-
