@@ -140,7 +140,6 @@
   {"timestamp":"2026-03-25T10:02:17","level":"ERROR","service":"auth","message":"token expired"},
   {"timestamp":"2026-03-25T10:02:18","level":"INFO","service":"orders","message":"updated"},
   {"timestamp":"2026-03-25T10:02:19","level":"ERROR","service":"inventory","message":"db error"},
-
   {"timestamp":"2026-03-25T10:02:20","level":"INFO","service":"auth","message":"request processed"},
   {"timestamp":"2026-03-25T10:02:21","level":"ERROR","service":"payment","message":"failed"},
   {"timestamp":"2026-03-25T10:02:22","level":"WARN","service":"orders","message":"delayed"},
@@ -347,4 +346,4 @@
     {"timestamp":"2026-03-25T10:05:27","level":"ERROR","service":"auth","message":"token expired"},
     {"timestamp":"2026-03-25T10:05:28","level":"INFO","service":"orders","message":"updated"},
     {"timestamp":"2026-03-25T10:05:29","level":"ERROR","service":"inventory","message":"db error"}
-  ]
+  ]  

@@ -64,7 +64,7 @@ public class LogProcessor {
         service.printResults();
 
 
-       // service.writeToJsonFile("src/main/resources/outputlogs.json");
+        service.writeToJsonFile("src/main/resources/outputlogs.json");
 
         long end = System.currentTimeMillis();
 
