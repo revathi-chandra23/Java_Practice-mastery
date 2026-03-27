@@ -16,7 +16,7 @@ public class LogProcessor {
 
     public static void main(String[] args) {
 
-        String filePath = "C:\\Users\\RevathiTannidi\\OneDrive - Atyeti Inc\\Desktop\\Atyeti_RevathiTannidi_Java\\MultiThreaded_Json_Log_Processor\\src\\main\\resources\\logs.json";
+        String filePath = "C:\\Users\\RevathiTannidi\\OneDrive - Atyeti Inc\\Documents\\Revathi_Practice\\MultiThreaded_Json_Log_Processor\\src\\main\\resources\\logs.json";
 
         int threads = Runtime.getRuntime().availableProcessors();
         ExecutorService executor = Executors.newFixedThreadPool(threads);
@@ -64,7 +64,7 @@ public class LogProcessor {
         service.printResults();
 
 
-        service.writeToJsonFile("src/main/resources/outputlogs.json");
+        service.writeToJsonFile("C:\\Users\\RevathiTannidi\\OneDrive - Atyeti Inc\\Documents\\Revathi_Practice\\MultiThreaded_Json_Log_Processor\\src\\main\\resources\\output.json");
 
         long end = System.currentTimeMillis();
 
