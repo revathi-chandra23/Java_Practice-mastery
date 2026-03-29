@@ -10,8 +10,6 @@ abstract class Customer {
     }
 
     public abstract double calculateDiscount();
-
-
     public void displayDetails() {
         System.out.println("Customer Name: " + name);
         System.out.println("Purchase Amount: $" + purchaseAmount);

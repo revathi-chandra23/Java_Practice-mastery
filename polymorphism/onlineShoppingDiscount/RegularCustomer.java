@@ -22,6 +22,7 @@ class PremiumCustomer extends Customer {
     }
 }
 
+
 class EliteCustomer extends Customer {
     public EliteCustomer(String name, double purchaseAmount) {
         super(name, purchaseAmount);
