@@ -1,11 +1,12 @@
 package org.practice.java.salesAnalzer.service;
 
-import org.practice.java.salesAnalzer.exception.DataAnalysisException;
-import org.practice.java.salesAnalzer.util.CSVWriterUtil;
-import org.practice.java.salesAnalzer.model.SaleRecord;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import org.practice.java.salesAnalzer.exception.DataAnalysisException;
+import org.practice.java.salesAnalzer.model.SaleRecord;
+import org.practice.java.salesAnalzer.util.CSVWriterUtil;
 
 public class ProductAnalyzer extends  Thread{
 
@@ -30,7 +31,7 @@ public class ProductAnalyzer extends  Thread{
             sortedProducts.forEach(e ->
                     System.out.println(e.getKey() + ": " + e.getValue() + " units"));
 
-            CSVWriterUtil.topProductsToCSV(sortedProducts, "C:\\Users\\RevathiTannidi\\IdeaProjects\\POC-projects\\sales_Report_generator\\src\\main\\reports\\top_products.csv");
+            CSVWriterUtil.topProductsToCSV(sortedProducts, "C:\\Users\\RevathiTannidi\\OneDrive - Atyeti Inc\\Documents\\Revathi_Practice\\sales_Report_generator\\src\\main\\reports\\top_products.csv");
 
         } catch (DataAnalysisException e) {
             System.err.println("product analysis failed: " + e.getMessage());
