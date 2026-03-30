@@ -1,11 +1,11 @@
 package org.practice.java.salesAnalzer.service;
-import org.practice.java.salesAnalzer.exception.DataAnalysisException;
-import org.practice.java.salesAnalzer.model.SaleRecord;
-import org.practice.java.salesAnalzer.util.CSVWriterUtil;
-
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import org.practice.java.salesAnalzer.exception.DataAnalysisException;
+import org.practice.java.salesAnalzer.model.SaleRecord;
+import org.practice.java.salesAnalzer.util.CSVWriterUtil;
 
 public class RegionAnalyzer extends Thread{
 
@@ -26,7 +26,7 @@ public class RegionAnalyzer extends Thread{
             revenueByRegion.forEach((region, revenue) ->
                     System.out.printf("%s: $%.2f%n", region, revenue));
 
-            CSVWriterUtil.revenueByRegionToCSV(revenueByRegion, "C:\\Users\\RevathiTannidi\\IdeaProjects\\POC-projects\\sales_Report_generator\\src\\main\\reports\\revenue_by_region.csv");
+            CSVWriterUtil.revenueByRegionToCSV(revenueByRegion, "C:\\Users\\RevathiTannidi\\OneDrive - Atyeti Inc\\Documents\\Revathi_Practice\\sales_Report_generator\\src\\main\\reports\\revenue_by_region.csv");
 
         } catch (DataAnalysisException e) {
             System.err.println("Region analysis failed: " + e.getMessage());
