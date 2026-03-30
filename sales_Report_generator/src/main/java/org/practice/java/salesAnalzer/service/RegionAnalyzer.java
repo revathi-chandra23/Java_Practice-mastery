@@ -20,7 +20,7 @@ public class RegionAnalyzer extends Thread{
         try {
             Map<String, Double> revenueByRegion = records.stream()
                     .collect(Collectors.groupingBy(SaleRecord::getRegion,
-                            Collectors.summingDouble(SaleRecord::getTotalRevenue)));
+                            Collectors.summingDouble(SaleRecord::getTotalRevenue))); // Group by region and sum total revenue
 
             System.out.println("Revenue by Region:");
             revenueByRegion.forEach((region, revenue) ->

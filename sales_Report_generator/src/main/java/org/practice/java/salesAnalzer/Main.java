@@ -15,7 +15,7 @@ public class Main {
 
         try {
             List<SaleRecord> salesRecords = CSVReaderUtil.readSalesFromCSV(filePath);
-
+//            salesRecords.forEach(System.out::println); // Debug: Print all records
             if (salesRecords.isEmpty()) {
                 System.out.println("No data ");
                 return;

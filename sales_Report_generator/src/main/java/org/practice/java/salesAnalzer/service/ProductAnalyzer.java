@@ -19,13 +19,13 @@ public class ProductAnalyzer extends  Thread{
     @Override
     public void run() {
         try {
-            Map<String, Integer> productUnits = records.stream()
+            Map<String, Integer> productUnits = records.stream() 
                     .collect(Collectors.groupingBy(SaleRecord::getProductId,
-                            Collectors.summingInt(SaleRecord::getUnitsSold)));
+                            Collectors.summingInt(SaleRecord::getUnitsSold)));  // Group by product and sum units sold
 
             List<Map.Entry<String, Integer>> sortedProducts = productUnits.entrySet().stream()
                     .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
-                    .toList();
+                    .toList(); // Sort products by units sold in descending order
 
             System.out.println("Top Selling Products:");
             sortedProducts.forEach(e ->

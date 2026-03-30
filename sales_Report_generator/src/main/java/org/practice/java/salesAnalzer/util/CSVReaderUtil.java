@@ -22,8 +22,7 @@ public class CSVReaderUtil {
                      String region = data[1];
                     int unitsSold = Integer.parseInt(data[2]);
                     double unitPrice = Double.parseDouble(data[3]);
-                    LocalDate saleDate = LocalDate.parse(data[4]);
-
+                    LocalDate saleDate = LocalDate.parse(data[4]); // Assuming date is in ISO format (YYYY-MM-DD)   
                     records.add(new SaleRecord(productId, region, unitsSold, unitPrice, saleDate));
                 }
             }
