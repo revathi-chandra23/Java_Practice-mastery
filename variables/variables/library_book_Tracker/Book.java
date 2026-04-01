@@ -1,7 +1,4 @@
 package library_book_Tracker;
-
-
-
 public class Book {
     private static int totalBooks=0;
     String title;
