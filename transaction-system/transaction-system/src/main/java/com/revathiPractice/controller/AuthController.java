@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revathiPractice.Security.JwtTokenProvider;
 import com.revathiPractice.model.User;
-
 import cm.practice.repository.UserRepository;
-
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
