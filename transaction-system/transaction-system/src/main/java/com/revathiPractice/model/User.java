@@ -28,10 +28,10 @@ public class User implements UserDetails {
 	private List<String> roles; // Example: List of roles like "USER", "ADMIN", etc.
 
 	public User(String username2, String password2, List<String> roles2) {
-		// TODO Auto-generated constructor stub
+	
 	}
 
-	// Getters and setters for the fields
+
 	public Long getId() {
 		return id;
 	}
