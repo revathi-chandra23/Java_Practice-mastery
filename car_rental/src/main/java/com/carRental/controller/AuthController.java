@@ -1,5 +1,10 @@
 package com.carRental.controller;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.carRental.dtos.LoginRequestDTO;
 import com.carRental.dtos.LoginResponseDTO;
@@ -7,10 +12,9 @@ import com.carRental.dtos.RegisterRequestDTO;
 import com.carRental.entity.User;
 import com.carRental.repository.UserRepository;
 import com.carRental.security.JwtUtil;
+
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")

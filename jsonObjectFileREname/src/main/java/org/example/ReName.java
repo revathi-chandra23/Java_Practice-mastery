@@ -1,13 +1,13 @@
 package org.example;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 import static org.example.Main.FILE_PATH;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 public class ReName {
     public static void doUpdate() {
@@ -65,7 +65,6 @@ public class ReName {
                         }
                 );
             }
-
 
             FileWriter writer=new FileWriter(FILE_PATH);
             writer.write(jsonObject.toString());

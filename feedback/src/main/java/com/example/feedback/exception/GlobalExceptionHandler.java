@@ -20,7 +20,6 @@ import java.util.List;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    // --- Custom domain errors ---
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ApiError> handleNotFound(ResourceNotFoundException ex, WebRequest request) {
         ApiError apiError = new ApiError(
