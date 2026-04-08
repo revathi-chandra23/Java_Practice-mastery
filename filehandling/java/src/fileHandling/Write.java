@@ -1,7 +1,6 @@
 package fileHandling;
-
-
-import java.io.*;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class
 Write{
