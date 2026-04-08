@@ -1,7 +1,5 @@
 
-
 package com.practice.filehandling;
-
 public class Product {
     int ProductID;
     String ProductName;

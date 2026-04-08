@@ -12,7 +12,6 @@ public class File1 {
         Map<String, Integer> productNameCount = new HashMap<>();
  final String filePath="C:\\Users\\RevathiTannidi\\OneDrive - Atyeti Inc\\Desktop\\Atyeti_RevathiTannidi_Java\\22-5-2025(core_java)\\java\\src\\com\\atyeti\\files\\revathi.csv";
 
-
  try(
      BufferedReader br=new BufferedReader(new FileReader(filePath))){
 

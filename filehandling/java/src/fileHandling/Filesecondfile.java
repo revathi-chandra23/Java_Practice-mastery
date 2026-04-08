@@ -14,7 +14,6 @@ public class Filesecondfile {
                 System.out.println("File already exists.");
             }
 
-            // Create a FileWriter object to write to the file
             try (FileWriter write = new FileWriter(obj)) {
                 write.write("Hello, this is a test message.");
                 System.out.println("Successfully wrote to the file.");
