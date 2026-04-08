@@ -8,7 +8,7 @@ public class ReadTheFile {
         try
         {
             FileReader read =new FileReader("filehandling\\java\\src\\fileHandling\\reader.txt");
-            Scanner sc=new Scanner(read);  // used to read the data from the file of line by line
+            Scanner sc=new Scanner(read);  
             while(sc.hasNextLine())
             {
                 String s=sc.nextLine();
