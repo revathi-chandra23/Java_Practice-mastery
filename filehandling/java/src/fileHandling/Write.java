@@ -8,7 +8,6 @@ Write{
         try
         {
             FileWriter writ=new FileWriter("run.txt");
-
             writ.write("hi , im revathi chandra");
             writ.close();
             System.out.println("successfully written");
