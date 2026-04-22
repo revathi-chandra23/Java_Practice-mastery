@@ -11,7 +11,6 @@ public class File1 {
         List<Product> products = new ArrayList<>();
         Map<String, Integer> productNameCount = new HashMap<>();
  final String filePath="C:\\Users\\RevathiTannidi\\OneDrive - Atyeti Inc\\Desktop\\Atyeti_RevathiTannidi_Java\\22-5-2025(core_java)\\java\\src\\com\\atyeti\\files\\revathi.csv";
-
  try(
      BufferedReader br=new BufferedReader(new FileReader(filePath))){
 
@@ -25,7 +24,8 @@ public class File1 {
              System.out.println("Skipping malformed line: " + line);
              continue;
          }
-     try
+     
+         try
          {
              int productID = Integer.parseInt(values[0].trim());
              String productName = values[1].trim();
