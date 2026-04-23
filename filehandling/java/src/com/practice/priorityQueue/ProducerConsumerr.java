@@ -31,14 +31,14 @@ class SimpleBuffer {
 
 public class ProducerConsumerr {
     public static void main(String[] args) {
-
+//consumer producer problem using priority queue
         SimpleBuffer buffer = new SimpleBuffer();
 
 
         buffer.produce(30);
         buffer.produce(10);
         buffer.produce(20);
-
+//        buffer.produce(5);
 
         buffer.consume();          buffer.consume();
 
