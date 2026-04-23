@@ -1,11 +1,11 @@
 package org.atyeti.blocingQueue.priorityQueue;
 
-import java.util.PriorityQueue;
 import java.util.Comparator;
+import java.util.PriorityQueue;
 
 public class PriorityQueueExampleAndMethods {
     public static void main(String[] args) {
-
+//methods
         PriorityQueue<Integer> pq = new PriorityQueue<>();
 
         pq.offer(30);
