@@ -14,5 +14,6 @@ public class Method {
     public static void main(String[] args) {
         Bank bank = new SBI();
         System.out.println(bank.getInterest());
+        System.out.println(((SBI) bank).getInterest());
     }
 }
