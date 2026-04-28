@@ -16,7 +16,7 @@ public class SortIntegers {
 
         // Sort in ascending order
         Collections.sort(numbers);
-        numbers.sort(null); 
+    numbers.sort(null); // Alternative way to sort in ascending
         System.out.println("Ascending order: " + numbers);
 
         // Sort in descending order
