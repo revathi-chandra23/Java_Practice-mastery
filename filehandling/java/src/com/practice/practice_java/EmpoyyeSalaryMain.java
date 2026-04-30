@@ -19,7 +19,7 @@ class Employee {
     }
 }
 
-public class Main {
+public class EmpoyyeSalaryMain {
     public static void main(String[] args) {
         Employee emp = new Employee();
         emp.setId(101);
