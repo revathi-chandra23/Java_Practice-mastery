@@ -7,4 +7,5 @@ public class Example1 {
                 .filter(name -> name.startsWith("A"))
                 .forEach(System.out::println);
     }
+
 }
