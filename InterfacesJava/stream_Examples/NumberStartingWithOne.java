@@ -9,7 +9,6 @@ public class NumberStartingWithOne{
                   .filter(s -> s.startsWith("1"))
                   .forEach(System.out::println);
 
-/* or can also try below method */
 
 /* When numbers are given as Array int[] arr = {10,15,8,49,25,98,32}; */
       List<String> list = Arrays.stream(arr).boxed()
