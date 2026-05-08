@@ -3,7 +3,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class STreamAPI {
+public class STreamAPIExamples {
     public static void main(String[] args) {
 
         //Q1. counting the ele
