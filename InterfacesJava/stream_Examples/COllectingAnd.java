@@ -18,4 +18,4 @@ public class COllectingAnd{
 
         System.out.println(count);
     }
-}
+}                     
