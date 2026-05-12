@@ -14,6 +14,5 @@ for(Map.Entry<Integer[], String> entry:map.entrySet())
     System.out.println(Arrays.toString(entry.getKey())+" "+entry.getValue());
 }
 
-
     }
 }
