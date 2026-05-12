@@ -1,8 +1,7 @@
-
-
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-
+import java.util.Arraysoncurrent.ConcurrentHashMap;
+//HashMap
+import java.util.Map;
 public class Example2 {
     public static void main(String[] args) {
         Map<Integer[], String> map = new HashMap<>();
