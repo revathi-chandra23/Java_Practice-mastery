@@ -1,10 +1,5 @@
-package org.atyeti.loganalyzer.controller;
+package logAnalyzer.controller;
 
-
-import org.atyeti.loganalyzer.database.LogReportDAO;
-import org.atyeti.loganalyzer.model.LogReport;
-import org.atyeti.loganalyzer.service.LogFileThreadReader;
-import org.atyeti.loganalyzer.service.LogProcessorService;
 
 import java.io.File;
 import java.util.ArrayList;
