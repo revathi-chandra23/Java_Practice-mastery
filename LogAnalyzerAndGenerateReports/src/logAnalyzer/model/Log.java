@@ -1,4 +1,4 @@
-package org.atyeti.loganalyzer.model;
+package logAnalyzer.model;
 
 public class Log {
 
